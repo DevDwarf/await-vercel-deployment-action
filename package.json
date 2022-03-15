@@ -4,9 +4,7 @@
   "description": "Await latest Vercel deployment on a specific Vercel project",
   "main": "index.js",
   "scripts": {
-    "scripts": {
-      "build": "tsc && ncc build lib/main.js"
-    }
+    "build": "tsc && ncc build lib/main.js"
   },
   "author": "DevDwarf",
   "license": "ISC",
