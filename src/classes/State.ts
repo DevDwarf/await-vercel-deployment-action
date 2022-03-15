@@ -39,7 +39,7 @@ class State implements StateInterface {
       return gh.event.head_commit.id
     }
 
-    if(gh.event?.pull_reques){
+    if(gh.event?.pull_request){
       return gh.event.pull_request.head.sha
     }
 
