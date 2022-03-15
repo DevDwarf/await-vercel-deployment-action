@@ -1,0 +1,19 @@
+name: 'Await Vercel Deployments'
+description: 'Await latest Vercel deployment on a specific Vercel project'
+inputs:
+  access-token:
+    description: 'The Vercel authorization token to access the API'
+    required: true
+  project-id:
+    description: 'The Vercel project id of the targeted project'
+    required: true
+  wait-for:
+    description: 'Max time to wait for response before bailing out (in seconds)'
+    default: '120'
+outputs:
+  deployment:
+    description: 'The details of found deployment'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+

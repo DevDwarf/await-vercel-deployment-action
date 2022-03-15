@@ -1,0 +1,22 @@
+{
+  "name": "await-vercel-deployments-action",
+  "version": "0.0.0",
+  "description": "Await latest Vercel deployment on a specific Vercel project",
+  "main": "index.js",
+  "scripts": {
+    "scripts": {
+      "build": "tsc && ncc build lib/main.js"
+    }
+  },
+  "author": "DevDwarf",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "1.6.0",
+    "@actions/github": "5.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "0.33.3",
+    "eslint": "^8.10.0",
+    "typescript": "4.6.2"
+  }
+}
