@@ -7,7 +7,6 @@ import {
 } from "../types"
 import config from "../config"
 
-const gh = github as unknown as GithubInterface
 
 /**
  * Contains the state for the action
@@ -21,7 +20,7 @@ class State implements StateInterface {
   public accessToken
 
   constructor() {
-    this.sha = gh.event.pull_request.head.sha
+    this.sha = this.validateSha()
     this.baseUrl = config.VERCEL_BASE_ENDPOINT
     this.teamId = core.getInput("team-id")
     this.waitFor = +core.getInput("wait-for") * 1000
