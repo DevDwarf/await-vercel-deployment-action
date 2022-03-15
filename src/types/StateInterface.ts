@@ -1,7 +1,7 @@
 /**
- * Defines the configuration types
+ * Defines the state types
  */
-interface SetupValues {
+interface StateInterface {
   /**
    * The commit sha, this is used to find the correct deployment
    */
@@ -11,13 +11,26 @@ interface SetupValues {
    */
   waitFor: number
   /**
+   * Vercel API base url
+   */
+  baseUrl: string
+  /**
    * The unique identifier for the targeted project
    */
   projectId: string
   /**
+   * The unique identifier for a Vercel team
+   */
+  teamId: string
+  /**
    * Vercel API access token
    */
   accessToken: string
+
+  /**
+   * Ensure SHA is found and valid
+   */
+  validateSha(): string
 }
 
-export { SetupValues }
+export { StateInterface }

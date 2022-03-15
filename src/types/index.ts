@@ -1,7 +1,9 @@
+import { StateInterface } from "./StateInterface"
 import { ConfigInterface } from "./ConfigInterface"
-import { SetupValues } from "./SetupValues"
+import { GithubInterface } from "./GithubInterface"
 
 export {
-  SetupValues,
-  ConfigInterface
+  StateInterface,
+  ConfigInterface,
+  GithubInterface
 }

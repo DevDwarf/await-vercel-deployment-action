@@ -2,11 +2,14 @@ name: 'Await Vercel Deployments'
 description: 'Await latest Vercel deployment on a specific Vercel project'
 inputs:
   access-token:
-    description: 'The Vercel authorization token to access the API'
+    description: 'Vercel authorization token to access the API'
     required: true
   project-id:
-    description: 'The Vercel project id of the targeted project'
+    description: 'Vercel project unique identifier'
     required: true
+  team-id:
+    description: 'Vercel team unique identifier'
+    default: ''
   wait-for:
     description: 'Max time to wait for response before bailing out (in seconds)'
     default: '120'
