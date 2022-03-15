@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "strict": true,
     "target": "es6",
-    "module": "commonjs",
     "outDir": "./lib",
     "rootDir": "./src",
-    "strict": true,
+    "module": "commonjs",
     "noImplicitAny": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "lib": ["es6", "dom", "esnext"]
   },
   "exclude": ["node_modules"]
 }
