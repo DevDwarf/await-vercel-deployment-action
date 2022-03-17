@@ -131,6 +131,7 @@ class Vercel {
                     params: Object.assign({ projectId: this.projectId, "meta-githubCommitSha": this.sha }, (this.teamId && { teamId: this.teamId }))
                 });
                 const data = ((_a = response.data) === null || _a === void 0 ? void 0 : _a.deployments) || [];
+                core.info(data);
                 const hasNoData = data.length < 1;
                 const isStillBuilding = data[0].buildingAt === data[0].ready;
                 if (hasNoData || isStillBuilding) {

@@ -41,7 +41,7 @@ class Vercel {
         }
       })
       const data = response.data?.deployments || []
-
+      core.info(data)
       const hasNoData = data.length < 1
       const isStillBuilding = data[0].buildingAt === data[0].ready
 
