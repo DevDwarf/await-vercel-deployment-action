@@ -34,12 +34,12 @@ class State implements StateInterface {
   public validateSha(): string {
     const gh = github as unknown as GithubInterface
 
-    if(gh.event?.head_commit){
-      return gh.event.head_commit.id
+    if(gh.context.payload?.head_commit){
+      return gh.context.payload.head_commit.id
     }
 
-    if(gh.event?.pull_request){
-      return gh.event.pull_request.head.sha
+    if(gh.context.payload?.pull_request){
+      return gh.context.payload.pull_request.head.sha
     }
 
     throw new Error("SHA cannot be retrieved")

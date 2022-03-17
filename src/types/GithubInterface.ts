@@ -5,5 +5,5 @@ export interface GithubInterface {
   /**
    * Current events on github action
    */
-  event: any
+  context: any
 }
