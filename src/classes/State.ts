@@ -19,7 +19,7 @@ class State implements StateInterface {
   public accessToken
 
   constructor() {
-    this.sha = this.validateSha()
+    this.sha = ""
     this.baseUrl = config.VERCEL_BASE_ENDPOINT
     this.teamId = core.getInput("team-id")
     this.waitFor = +core.getInput("wait-for") * 1000
@@ -37,7 +37,7 @@ class State implements StateInterface {
     if(gh.event?.head_commit){
       return gh.event.head_commit.id
     }
-    core.info(gh.event)
+
     if(gh.event?.pull_request){
       return gh.event.pull_request.head.sha
     }
