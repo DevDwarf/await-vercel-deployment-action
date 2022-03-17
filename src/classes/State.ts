@@ -7,7 +7,6 @@ import {
 } from "../types"
 import config from "../config"
 
-
 /**
  * Contains the state for the action
  */
