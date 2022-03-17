@@ -41,7 +41,7 @@ const config_1 = __importDefault(__nccwpck_require__(88));
  */
 class State {
     constructor() {
-        this.sha = "";
+        this.sha = this.validateSha();
         this.baseUrl = config_1.default.VERCEL_BASE_ENDPOINT;
         this.teamId = core.getInput("team-id");
         this.waitFor = +core.getInput("wait-for") * 1000;

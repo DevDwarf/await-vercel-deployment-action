@@ -19,7 +19,7 @@ class State implements StateInterface {
   public accessToken
 
   constructor() {
-    this.sha = ""
+    this.sha = this.validateSha()
     this.baseUrl = config.VERCEL_BASE_ENDPOINT
     this.teamId = core.getInput("team-id")
     this.waitFor = +core.getInput("wait-for") * 1000
