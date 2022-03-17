@@ -41,9 +41,9 @@ class Vercel {
         }
       })
       const data = response.data?.deployments || []
-      core.info(data)
+      core.info(data[0])
       const hasNoData = data.length < 1
-      const isStillBuilding = data[0].buildingAt === data[0].ready
+      const isStillBuilding = data[0]?.buildingAt === data[0]?.ready
 
       if (hasNoData || isStillBuilding) {
         console.log("Deployment not yet ready, will retry in 2 seconds")
