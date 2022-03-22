@@ -20,12 +20,19 @@ const initAwaitForVercelDeployment = async (): Promise<void> => {
     } = stateObject
     core.info(`Awaiting deployment for project with Id: ${projectId}`)
 
+    core.info(`Ready with sha: ${sha}`)
+    core.info(`Ready with teamId: ${teamId}`)
+    core.info(`Ready with waitFor: ${waitFor}`)
+    core.info(`Ready with baseUrl: ${baseUrl}`)
+
     const request = axios.create({
       baseURL: baseUrl,
       headers: {
         Authorization: `Bearer ${accessToken}`
       }
     })
+
+    core.info(`Request built with token: ${accessToken}`)
 
     const vercelObject = new Vercel(request, {
       sha,
@@ -34,10 +41,13 @@ const initAwaitForVercelDeployment = async (): Promise<void> => {
       projectId,
     })
 
+    core.info(`Vercel client ready`)
+
     const deployment = await vercelObject.awaitDeployment()
 
     core.setOutput("deployment", deployment)
   } catch (error: any) {
+    core.error(error)
     core.setFailed(error.message)
   }
 }

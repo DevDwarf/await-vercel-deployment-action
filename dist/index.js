@@ -220,22 +220,29 @@ const initAwaitForVercelDeployment = () => __awaiter(void 0, void 0, void 0, fun
         const stateObject = new State_1.default();
         const { sha, teamId, waitFor, baseUrl, projectId, accessToken } = stateObject;
         core.info(`Awaiting deployment for project with Id: ${projectId}`);
+        core.info(`Ready with sha: ${sha}`);
+        core.info(`Ready with teamId: ${teamId}`);
+        core.info(`Ready with waitFor: ${waitFor}`);
+        core.info(`Ready with baseUrl: ${baseUrl}`);
         const request = axios_1.default.create({
             baseURL: baseUrl,
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
         });
+        core.info(`Request built with token: ${accessToken}`);
         const vercelObject = new Vercel_1.default(request, {
             sha,
             teamId,
             waitFor,
             projectId,
         });
+        core.info(`Vercel client ready`);
         const deployment = yield vercelObject.awaitDeployment();
         core.setOutput("deployment", deployment);
     }
     catch (error) {
+        core.error(error);
         core.setFailed(error.message);
     }
 });
