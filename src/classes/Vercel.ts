@@ -33,7 +33,7 @@ class Vercel {
     const cutOffTime = new Date().getTime() + this.waitFor
 
     while (new Date().getTime() < cutOffTime) {
-      const response = this.request.get('/v6/deployments', {
+      const response = await this.request.get('/v6/deployments', {
         params: {
           projectId: this.projectId,
           "meta-githubCommitSha": this.sha,
